@@ -46,3 +46,27 @@ useEffect(() => {
 } ,[list])
 
 Colocamos isso dentro do useEffect para não precisar repetir códgo para todas as vezes que avisarAPI precisar ser usada. 
+
+Ele executa assim que o componente for exibido em tela e toda vez que a varíavel for alterada. 
+
+Podemos colocar condições dentro do useEffect para determinar em que momento ele irá executar minha função.
+
+Sempre precisamos por o array de dependencias.
+
+Podemos querer executar um componente uma única vez quando ele for renderizado em tela, pra isso, basta passar o array de dependências vazio.
+Por exemplo que queremos puxar dados de uma API, queremos que essa renderização aconteça apenas uma vez. 
+Então fazemos :
+
+useEffect(() => {
+  //acessamos o link da api
+  fetch('https://api.github.com/users/diego3g/repos')
+  //pegamos a resposta e transformamos em um json
+  .then(response => response.json)
+  //depois devidimos o que vamos fazer com a resposta
+  .then( data => {
+    setList(data.map((item) => item.full_name))
+  })
+}, [])
+
+Dessa forma será renderizado em tela todos os 20 primeiros repositórios do usuário selecioando pelo link da API.
+
