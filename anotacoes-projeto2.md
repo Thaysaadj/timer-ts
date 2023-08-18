@@ -70,3 +70,30 @@ useEffect(() => {
 
 Dessa forma será renderizado em tela todos os 20 primeiros repositórios do usuário selecioando pelo link da API.
 
+Prop Drilling -> É quando tepos muitas propriedades APENAS para comunicação entre componentes
+
+Como resolver Prop Drilling ? 
+Usando Context API -> Podemos compartilhar informações entre VÁRIOS componentes ao mesmo tempo.
+
+
+useReducer
+Usamos esse hook pra armazenar informações mais complexas. 
+Quando eu percebo que um estado precisa ser alterado com base no seu estado anterior, e está muito denso, com muitas linhas, exigindo calculos e usando  muitas informações, é hora de usar o useReducer para simplificar esse código.
+Com ele temos um local fixo com todas as alterações que podem acontecer dentro de um estado selecionado.
+
+sintaxe
+
+- useReducer() recebe 2 paramêtros : {
+  1º state - ele é o valor atual e em tempo real do estado
+  2º action - qual ação o usuário quer realizar de alteração dentro da variável. ela é única pra indicar a ação do usuário pra realizar a mudança do usuário
+}
+
+precisamos tipar o estado, indicando qual vai ser o tipo dos dados que vão ser armazenados no estado.
+
+setVariavel, não vai mais servir para alterar variavel, agora ela vai servir para disparar a função action e por isso, seu nome vai ser dispatch
+
+const [variavel, dispatch] = useReducer((state: Cycle[], action) => {
+  return state
+}, [])
+
+Precisamos enviar um objetos e dentrod ele, um type com qual é a ação a ser realizada
