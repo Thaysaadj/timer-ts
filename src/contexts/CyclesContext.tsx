@@ -3,7 +3,7 @@ import { Cycle, cyclesReducer } from '../reducers/cycles/reducer'
 import {
   addNewCycleAction,
   interruptCurrentCycleAction,
-  markCurrentCyclesAsFinishedaAction,
+  markCurrentCycleAsFinishedAction,
 } from '../reducers/cycles/actions'
 
 interface CreateCycleData {
@@ -47,7 +47,7 @@ export function CyclesContextProvider({
   }
 
   function markCurrentCycleAsFinished() {
-    dispatch(markCurrentCyclesAsFinishedaAction())
+    dispatch(markCurrentCycleAsFinishedAction())
   }
 
   function createNewCycle(data: CreateCycleData) {
@@ -61,6 +61,7 @@ export function CyclesContextProvider({
     }
 
     dispatch(addNewCycleAction(newCycle))
+
     setAmountSecondsPassed(0)
   }
 
